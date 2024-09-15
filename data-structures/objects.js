@@ -31,3 +31,24 @@ console.log(Object.entries(user))
 Object.getOwnPropertySymbols(user).forEach((item) => {
     console.log(user[item])
 })
+
+// Деструктуризация объекта в функции
+let salaries = {
+    "John": 100,
+    "Pete": 300,
+    "Mary": 250
+};
+
+function topSalaries(salaries) {
+    let employeeWithTopSalary = '';
+    let topSalary = 0;
+    Object.entries(salaries).forEach(([name, salary]) => {
+        if(salary >= topSalary) {
+            employeeWithTopSalary = name;
+            topSalary = salary;
+        }
+    })
+    return employeeWithTopSalary;
+}
+
+console.log(topSalaries(salaries))
